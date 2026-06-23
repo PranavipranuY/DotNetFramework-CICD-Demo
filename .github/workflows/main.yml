@@ -1,0 +1,26 @@
+name: ASP.NET Framework CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Restore NuGet Packages
+      run: nuget restore DocumentManager.API.sln
+
+    - name: Build Solution
+      run: msbuild DocumentManager.API.sln /p:Configuration=Release
