@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "User Registration";
+}
+
+<h2>User Registration</h2>
+
+<table>
+    <tr>
+        <td>First Name</td>
+        <td>
+            <input type="text" id="txtFirstName" />
+        </td>
+    </tr>
+
+    <tr>
+        <td>Last Name</td>
+        <td>
+            <input type="text" id="txtLastName" />
+        </td>
+    </tr>
+
+    <tr>
+        <td>Email</td>
+        <td>
+            <input type="text" id="txtEmail" />
+        </td>
+    </tr>
+
+    <tr>
+        <td>Password</td>
+        <td>
+            <input type="password" id="txtPassword" />
+        </td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>
+            <button type="button"
+                    onclick="registerUser()">
+                Register
+            </button>
+        </td>
+    </tr>
+</table>
+
+<script>
+
+    function registerUser() {
+        // Step 1 - Read values from screen
+
+        var firstName =
+            document.getElementById("txtFirstName").value;
+
+        var lastName =
+            document.getElementById("txtLastName").value;
+
+        var email =
+            document.getElementById("txtEmail").value;
+
+        var password =
+            document.getElementById("txtPassword").value;
+
+
+        // Step 2 - Create User Object
+
+        var user =
+        {
+            FirstName: firstName,
+            LastName: lastName,
+            Email: email,
+            Password: password
+        };
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+
+    function registerUser()
+    {
+var user =
+    {
+        FirstName: document.getElementById("txtFirstName").value,
+    LastName: document.getElementById("txtLastName").value,
+    Email: document.getElementById("txtEmail").value,
+    Password: document.getElementById("txtPassword").value
+};
+
+    $.ajax({
+        url: '/api/user/register',
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(user),
+
+    success: function(response)
+    {
+        alert(response);
+},
+
+    error: function(error)
+    {
+        alert("Error occurred");
+    console.log(error);
+}
+});
+}
+
+</script>
+   
